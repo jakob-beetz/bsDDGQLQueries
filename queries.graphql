@@ -1,0 +1,72 @@
+#Get all the Classifications in each domain
+{
+  domains {
+    name
+    namespaceUri
+    classificationSearch(searchText: "") {
+      name
+      namespaceUri
+    }
+  }
+}
+
+# get properies of IfcWalls across all classifications 
+{
+  domains {
+    name
+    namespaceUri
+    classificationSearch(searchText:"IfcWall"){
+      name 
+      namespaceUri
+      properties {
+        name
+        description 
+        documentReference
+        }
+      
+    }
+  }
+}
+
+#Get a specific Classification, based on search, from a specific domain
+{
+  domain(namespaceUri : "http://identifier.buildingsmart.org/uri/etim/etim-8.0") {
+    namespaceUri
+    copyrightNotice
+    classificationSearch(searchText: "dcf", languageCode: "EN") {
+      name
+      namespaceUri
+      synonyms
+      relatedIfcEntityNames
+      properties {
+        name
+        isRequired
+        pattern
+      }
+    }
+  }
+}
+
+#Get a specific Classification from a specific domain based on URI
+{
+  domain(namespaceUri: "http://identifier.buildingsmart.org/uri/promaterial/universaltypes-1.0") {
+    name
+    namespaceUri
+    classification (namespaceUri: "http://identifier.buildingsmart.org/uri/promaterial/universaltypes-1.0/class/UT03", includeChilds: true)
+    {
+      name 
+      namespaceUri
+      relations
+      {
+        relationType
+      }
+      properties {
+        name
+        dataType
+      }
+      childs{
+        name
+      }
+    }
+  }
+}
