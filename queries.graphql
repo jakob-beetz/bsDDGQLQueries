@@ -18,7 +18,7 @@ query availableQueries {
   }
 }
 
-#Get all the Classifications in each domain
+#Get all the Classifications in each domain (limited to first 100 results in prototype)
 {
   domains {
     name
