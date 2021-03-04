@@ -1,3 +1,23 @@
+#Understand the Schema
+query availableQueries {
+  __schema {
+    queryType {
+      fields {
+        name
+        description
+        type {
+          kind
+          name
+          fields {
+            name
+            description
+          }
+        }
+      }
+    }
+  }
+}
+
 #Get all the Classifications in each domain
 {
   domains {
